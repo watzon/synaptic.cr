@@ -1,6 +1,5 @@
 module Synaptic
   class Layer
-
     enum Connection_Type
       ALL_TO_ALL,
       ONE_TO_ONE,
@@ -64,7 +63,6 @@ module Synaptic
 
     # Projects a connection from this layer to another one
     def project(target_layer, kind, weights)
-
       if target_layer.is_a?(Network)
         target_layer = target_layer.layers.input
       end
@@ -72,7 +70,6 @@ module Synaptic
       if !connected_to?(target_layer)
         return LayerConnection.new(self, target_layer, kind, weights)
       end
-
     end
   end
 

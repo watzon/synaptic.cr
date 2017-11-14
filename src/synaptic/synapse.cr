@@ -1,6 +1,5 @@
 module Synaptic
   class Synapse
-
     @@connections = 0
 
     class_getter :connections

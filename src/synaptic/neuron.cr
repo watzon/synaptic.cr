@@ -110,8 +110,9 @@ module Synaptic
       @connections[:inputs].each do |key, input|
         # Eligability trace
         @trace[:eligability][input.id] = @self_connection.not_nil!.gain *
-                                         @self_connection.not_nil!.weight * @trace[:eligability][input.id] + input.gain *
-                                                                                                             input.from.activation
+                                         @self_connection.not_nil!.weight *
+                                         @trace[:eligability][input.id] + input.gain *
+                                                                          input.from.activation
 
         @trace[:extended].each do |key, value|
           # Extended eligability trace
@@ -215,7 +216,7 @@ module Synaptic
       neuron.trace[:eligability][connection.id] = 0.0
 
       neuron.trace[:extended].each do |_, trace|
-        trace[connection.id] = 0.0;
+        trace[connection.id] = 0.0
       end
 
       connection
@@ -306,7 +307,7 @@ module Synaptic
     end
 
     def self.quantity
-      { neurons: @@instances, connections: Synapse.connections }
+      {neurons: @@instances, connections: Synapse.connections}
     end
   end
 end
